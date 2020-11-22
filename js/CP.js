@@ -1,5 +1,5 @@
 var margin = {top: 30, right: 100, bottom: 70, left: 100},
-    width = 800 - margin.left - margin.right,
+    width = 700 - margin.left - margin.right,
     height = 700 - margin.top - margin.bottom;
 
 var svg = d3.select("#barchart")
@@ -10,12 +10,12 @@ var svg = d3.select("#barchart")
     .attr("transform",
           "translate(" + margin.left + "," + margin.top + ")");
 
-var promise = d3.csv("../csv/Religion.csv");
+var promise = d3.csv("../csv/CP.csv");
 promise.then(function(data){
 console.log(data)
 var x = d3.scaleBand()
   .range([ 0, width ])
-  .domain(data.map(function(d) { return d.Religion; }))
+  .domain(data.map(function(d) { return d.Answer; }))
   .padding(0.2);
     
 svg.append("g")
@@ -26,14 +26,14 @@ svg.append("g")
     .style("text-anchor", "end")
     svg.append("g")
         .append("text")
-        .text("Religion Types")
+        .text("Answer")
         .classed("label",true)
         .attr("text-anchor","middle")
         .attr("x",width)
         .attr("y",margin.top+height+10);
 
 var y = d3.scaleLinear()
-  .domain([0, 16000])
+  .domain([0, 20000])
   .range([ height, 0]);
 svg.append("g")
   .call(d3.axisLeft(y))
@@ -54,7 +54,7 @@ svg.selectAll("mybar")
   .data(data)
   .enter()
   .append("rect")
-    .attr("x", function(d) { return x(d.Religion); })
+    .attr("x", function(d) { return x(d.Answer); })
     .attr("y", function(d) { return y(d.Value); })
     .attr("width", x.bandwidth())
     .attr("height", function(d) { return height - y(d.Value); })
@@ -78,17 +78,14 @@ svg.selectAll("mybar")
    .on("mouseout", function(){
     d3.select("#tooltip").classed("hidden", true);
 })
-    
+ 
         svg.append("g")
         .classed("labels",true)
         .append("text")
-        .text("Religious Affiliation of 35071 Respondents")
+        .text("(Ask if Christian)How often do you speak or pray in tongues?")
         .classed("title",true)
         .attr("text-anchor","middle")
-        .attr("x",margin.left+(width/2))
-        .attr("y",0)
-    
-
+        .attr("x",margin.left+(width/2)-30)
+        .attr("y",-10)
         
     })
-

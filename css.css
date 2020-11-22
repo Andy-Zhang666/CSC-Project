@@ -1,4 +1,41 @@
 body {
     margin-left: 20px;
+    background-color: cornsilk;
 }
 li{display: inline;margin-right: 20px;}
+#name {position: absolute;top:auto;left:1200px;}
+#home {position: absolute;top:450px;}
+#data1 {position:absolute;
+top: 400px;}
+#data2 {position:absolute;
+top:650px;left:1400px;}
+#backIntro {position: absolute;top:700px;
+left:1400px;}
+#data3 {position:absolute;top:650px;
+left:1400px;}
+#backD1 {position: absolute;top: 700px; left:1400px;}
+#nextC {position: absolute;top:650px;left:1400px;}
+#backD2 {position: absolute;top: 700px; left:1400px;}
+#backD3 {position: absolute;top: 650px;left:1400px;}
+#homeC {position: absolute;top:700px;left:1400px;}
+#table1 {position:absolute;
+top:20px;
+left:900px;}
+
+#table2 {position:absolute;top:20px;
+    left:900px;}
+#table3 {position: absolute;top: 20px;left:900px;}
+
+th,td{padding: 8px 8px 8px 8px}
+
+
+
+#tooltip {
+    position:absolute;
+    width:200px;
+    height:auto;
+}
+#tooltip.hidden{
+    display:none;
+}
+
